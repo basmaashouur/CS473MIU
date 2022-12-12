@@ -1,59 +1,80 @@
-package com.example.cvbuilder
+package edu.miu.resume_app.ui.fragments
 
+import CVBuilderApp.R
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import edu.miu.resume_app.models.WorkExperience
+import edu.miu.resume_app.ui.dialog.WorkExperienceDialog
+import edu.miu.walmartlogin.adapter.WorkAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class WorkFragment : Fragment(R.layout.fragment_work) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Work.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Work : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private var workList = mutableListOf<WorkExperience>()
+    private lateinit var adapter: WorkAdapter
+    private lateinit var recyclerView: RecyclerView
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+        recyclerView = view.findViewById(R.id.recycler_view)
+        if (context != null) {
+            workList = mutableListOf(
+                WorkExperience(
+                    getString(R.string.meta_facebook_inc),
+                    getString(R.string.virtual_reality_content_engineer),
+                    getString(R.string._2020_present),
+                    R.drawable.meta
+                ),
+                WorkExperience(
+                    getString(R.string.google),
+                    getString(R.string.application_developer_for_youtube),
+                    getString(R.string._2018_2020),
+                    R.drawable.google
+                ),
+                WorkExperience(
+                    getString(R.string.amazon),
+                    getString(R.string.sde_ii),
+                    getString(R.string._2016_2018),
+                    R.drawable.amazon
+                ),
+                WorkExperience(
+                    getString(R.string.kforce),
+                    getString(R.string.sr_full_stack_engineer),
+                    getString(R.string._2014_2016),
+                    R.drawable.kforce
+                )
+            )
+            setupRecyclerView()
+        }
+
+        val fab: View = view.findViewById(R.id.fab)
+        fab.setOnClickListener { showWorkDialog() }
+    }
+
+    private fun setupRecyclerView() {
+        if (::recyclerView.isInitialized) {
+            recyclerView.layoutManager = LinearLayoutManager(context)
+            adapter = WorkAdapter(requireContext(), workList)
+            recyclerView.adapter = adapter
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_work, container, false)
+    private fun showWorkDialog() {
+        val dialog = WorkExperienceDialog()
+        dialog.show(parentFragmentManager, WorkExperienceDialog::class.java.name)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Work.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Work().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    @SuppressLint("NotifyDataSetChanged")
+    fun onAddWOrk(workExperience: WorkExperience) {
+        workList.add(workExperience)
+        if (::adapter.isInitialized) {
+            adapter.notifyDataSetChanged()
+        } else {
+            setupRecyclerView()
+        }
     }
+
 }
