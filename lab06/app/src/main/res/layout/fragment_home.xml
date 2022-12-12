@@ -55,7 +55,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
                         android:gravity="center_vertical"
-                        android:text="@string/mtayyab"
+                        android:text="@string/basmaashouur"
                         android:textSize="18sp" />
 
                     <TextView
