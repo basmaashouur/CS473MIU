@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">AndroidQuiz</string>
+    <string name="text_start">START</string>
+    <string name="text_home">Home</string>
+    <string name="text_result_analysis">RESULT ANALYSIS</string>
+    <string name="text_play_again">PLAY AGAIN</string>
+    <string name="text_congratulations">Congratulations!</string>
+    <string name="text_next">NEXT</string>
+    <string name="hint_question">Question</string>
+    <string name="hint_option_a">Option A</string>
+    <string name="text_option_b">Option B</string>
+    <string name="text_option_c">Option C</string>
+    <string name="text_option_d">Option D</string>
+    <string name="text_loading">Loading...</string>
+    <string name="text_empty_database">There isn\'t data yet!</string>
+    <string name="hint_score">Score: 5/10</string>
+    <string name="quiz">Quiz App</string>
+    <string name="result_1">
+        1. Which are the modules of Web layer?
+        Correct answer - A) WebSocket, Servlet, Web, Portlet
+    </string>
+    
+    <string name="result_2">
+        2. Which is the correct implementation class of BeanFactory?
+        Correct answer - A) XmlBeanFactory
+    </string>
+    
+    <string name="result_3">
+        3.What is true about list collection configuration elements?
+        Correct answer - A)  This helps in wiring a list of values, allowing duplicates.
+    </string>
+    
+    <string name="result_4">
+        4. What is bean autowiring?
+        Correct answer - A)  Autowiring lets Spring resolve collaborators (other beans) for your bean by inspecting the contents of the BeanFactory without using constructor-arg and property elements.
+    </string>
+    
+    <string name="result_5">
+        5. What is RequestHandledEvent:event?
+        Correct answer - C)  This event is published when the HTTP session is initialized or refreshed.
+    </string>
+    
+    <string name="result_6">
+        6. How around advice works?
+        Correct answer - A) Run advice before and after the advised method is invoked.
+    </string>
+    
+    <string name="result_7">
+        7. Which of the following database is not supported using jdbcTemplate?
+        Correct answer - C) NoSql
+    </string>
+    
+    <string name="result_8">
+        8.  Expression Language/ SpEL was introduced in which version of spring framework.
+        Correct answer - C) 3.0
+    </string>
+    
+    <string name="result_9">
+        9. Which of the following class can be used to call Stored Procedures in spring?
+        Correct answer - D) SimpleJdbcCall
+    </string>
+    
+    <string name="result_10">
+        10. What is the use of a content provider in Android?
+        Correct answer - C) A content provider is used to share information between Android applications.
+    </string>
+    
+    <string name="result_11">
+        11. While developing android application developers can test their apps on
+        Correct answer - D) Apps can be tested in all the sources mentioned above.
+    </string>
+    
+    <string name="result_12">
+        12. In android, mini activities are also known as
+        Correct answer - C) In android, mini activities are also known as Fragments
+    </string>
+    
+    <string name="result_13">
+        13. Among the following choose the one which converts Java bytecode into Dalvik bytecode
+        Correct answer - A)  dex compiler converts convert JAVA bytecode into Dalvik bytecode.
+    </string>
+    
+    <string name="result_14">
+        14. The services in android can be stopped using which of the following method?
+        Correct answer - B) stopSelf() and stopService() method can be used to stop services in android.
+    </string>
+    
+    <string name="result_15">
+        15. Activity in Android can be killed using?
+        Correct answer - D) Activity in Android can be killed using both finishActivity (int requestCode) and finish() method.
+    </string>
+
+</resources>
